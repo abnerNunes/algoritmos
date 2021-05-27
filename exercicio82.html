@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Café da Manhã</h1>
+    <br>
+    <select id="select_cafe">
+        <option value="nonvegan">ovos</option>
+        <option value="vegan">leite de arroz</option>
+        <option value="nonvegan">bacon</option>
+    </select>
+
+    <br>
+
+    <h1>Almoço</h1>
+    <br>
+    <select id="select_almoco">
+        <option value="nonvegan">bife</option>
+        <option value="vegan">hamburguer de soja</option>
+        <option value="nonvegan">frango grelhado</option>
+    </select>
+
+    <br>
+
+    <h1>Janta</h1>
+    <br>
+    <select id="select_janta">
+        <option value="vegan">picanha de soja</option>
+        <option value="nonvegan">cupim</option>
+        <option value="nonvegan">coração</option>
+    </select>
+    
+    <br><br>
+
+    <button onclick="veganismo()">Vegano?</button>
+</body>
+</html>
+
+<script>
+
+function veganismo(){
+    var cafe = select_cafe.value;
+    var almoco = select_almoco.value;
+    var janta = select_janta.value;
+
+    if(cafe=='vegan' && almoco=='vegan' && janta=='vegan'){
+        alert(`Você é VEGANO!`);
+    } else{
+        alert(`Você não é vegano!!!`);
+    }
+
+}
+
+</script>
+
+<!-- 7. Crie um programa em HTML/JS que verifique se o usuário é vegano ou não.
+a) Numa combo pergunte o que ele come no café da manhã, tendo as opções
+    ovos
+    leite de arroz
+    bacon
+b) Numa outra combo pergunte o que ele come no almoço, tendo as opções
+    bife
+    hamburger de soja
+    frango grelhado
+c) Numa outra combo pergunte o que ele come na janta, tendo as opções
+    picanha de soja
+    cupim
+    coração
+
+d) Ao clicar no botão "Sou vegano", aparece um alert com uma dessas frases:
+    "Sim, você é vegano!", caso ele consuma leite de arroz no café, hamburger de soja no almoço e picanha de soja na janta
+    "Não, você não é vegano", caso contrário -->

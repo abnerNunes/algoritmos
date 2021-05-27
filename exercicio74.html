@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body bgcolor="aquamarine">
+    
+Quantos pães você come por dia?<input id="in_pao"><br>
+Quantos pacotes de bolacha você come por dia?<input id="in_bolacha"><br>
+Quantos copos de achocolatado você toma por dia?<input id="in_achoco">
+
+<br><br>
+
+<button onclick="verifi()">Verificar Calorias</button>
+
+<br><br>
+
+<div>
+<span id="spanCalo"></span><br>
+<div id="img"></div>
+</div>
+
+</body>
+</html>
+
+<script>
+
+
+function verifi(){
+var paoCon = Number(in_pao.value);
+var bolaCon = Number(in_bolacha.value);
+var achoCon = Number(in_achoco.value);
+var paoCal = 50;
+var bolaCal = 80;
+var achoCal = 70;
+var caloPao = paoCal * paoCon;
+var caloBola = bolaCal * bolaCon;
+var caloAcho = achoCal * achoCon;
+var calTotal = caloPao + caloBola + caloAcho;
+
+if(calTotal < 200){
+
+    spanCalo.innerHTML = `Você vai sair em forma da quarentena!`;
+    img.innerHTML = `<img src="magrao.jpg">`;
+
+} else if(calTotal < 400){
+
+    spanCalo.innerHTML = `Você vai sair maromba da quarentena!`;
+    img.innerHTML = `<img src="forma.jpeg">`;
+
+} else if(calTotal > 400){
+
+    spanCalo.innerHTML = `Você vai sair irreconhecível da quarentena!`;
+    img.innerHTML = `<img src="gordo.jpg">`;
+
+}
+
+}
+
+</script>
+
+
+<!-- 5. Melhore o programa da questão anterior de tal forma que:
+a) No caso da primeira mensagem, apareça também na tela a imagem de uma pessoa em forma;
+b) No caso da segunda mensagem, apareça também na tela a imagem de uma pessoa levemente acima do peso ideal;
+c) No caso da terceira mensagem, apareça também na tela a imagem de uma pessoa bem acima do peso ideal; -->

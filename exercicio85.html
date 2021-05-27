@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Candidato A</h1>
+    <br>
+    <select  id="select_candiA">
+        <option value="0">Não Concorda</option>
+        <option value="1">Concorda</option>
+        
+    </select>
+
+    <br><br>
+
+    <h1>Candidato B</h1>
+    <br>
+    <select  id="select_candiB">
+        <option value="0">Não Concorda</option>
+        <option value="1">Concorda</option>
+        
+    </select>
+
+    <br><br>
+
+    <button onclick="debater()">Debate!</button>
+
+</body>
+</html>
+
+<script>
+    function debater(){
+        var candiA = Number(select_candiA.value);
+        var candiB = Number(select_candiB.value);
+       
+        if(candiA == 0 && candiB == 0){
+            alert(`Debate continua! Ambos Discordam do tema`);
+        } else if(candiA == 0 && candiB == 1){
+            alert(`Debate continua, apenas Candidato B concorda!`);
+        } else if(candiA == 1 && candiB == 0){
+            alert(`Debate continua, apenas Candidato A concorda!`);
+        } else if(candiA == 1 && candiB == 1){
+            alert(`Debate encerrado, ambos concordam`);
+        }
+    }
+</script>
+<!-- 3) A eleições estão aí (mentira, nem estão, só preciso contextualizar), e nada mais democrático que o bom e velho debate, não é mesmo ?
+     Crie um programa em HTML/JS que ajudará o mediador de um debate a saber quando interrompê-lo, 
+     pois todas as partes estão de acordo com um tema apresentado:
+
+
+
+a) Tenha uma lista com as posições do candidato A:
+
+    a.1) <option value="0">Não concordo com o tema</option>;
+
+    a.2) <option value="1">Concordo com o tema</option>;
+
+b) Tenha uma lista com as posições do candidato B:
+
+    b.1) <option value="0">Não concordo com o tema</option>;
+
+    b.2) <option value="1">Concordo com o tema</option>;
+
+c) Ao clicar em "Devo interromper?"
+
+    c.1) Informe ao mediador do debate se o deve encerrar a sessão, obedecendo as seguintes regras:
+
+    c.2) Se ambos os candidatos não concordam com o tema apresentado, informe: "Debate continua: ninguem concorda";
+
+    c.3) Se o candidato A não concorda mas o B concorda, informe: "Debate continua: apenas candidato A concorda";
+
+    c.4) Se o candidato B não concorda mas o A concorda, informe: "Debate continua: apenas candidato B concorda;"
+
+    c.5) Caso contrário, informe: "Debate pode encerrar: ambos candidatos concorda com o tema"; -->

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yikes
+    </title>
+</head>
+<body bgcolor="aquamarine">
+
+<select onchange="calenFunc()" id="select_lista_calen">
+        <option value="time_invalido">-</option>
+        <option value="janeiro">Janeiro</option>
+        <option value="fevereiro">Fevereiro</option>
+        <option value="marco">Março</option>
+        <option value="abril">Abril</option>
+        <option value="maio">Maio</option>
+        <option value="junho">Junho</option>
+        <option value="julho">Julho</option>
+        <option value="agosto">Agosto</option>
+        <option value="setembro">Setembro</option>
+        <option value="outubro">Outubro</option>
+        <option value="novembro">Novembro</option>
+        <option value="dezembro">Dezembro</option>
+
+    </select>
+
+    <br><br><br>
+
+    <div id="divEsta"></div>
+    
+</body>
+</html>
+
+
+
+<!-- 6. Crie um programa em HTML/JS o qual:
+a) Tenha uma combo com todos os meses do ano;
+b) Após alterar o valor da combo, exiba abaixo dela o nome uma imagem da estação do ano mais provável;
+c) Considere que o clima é no hemisfério norte, ou seja:
+    Primavera: março, abril e maio.
+    Verão: junho, julho e agosto.
+    Outono: setembro, outubro e novembro.
+    Inverno: dezembro, janeiro e fevereiro. -->
+
+
+    <script>
+
+        function calenFunc(){
+            
+            var mes = select_lista_calen.value;
+
+            if(mes == "janeiro"){
+
+                divEsta.innerHTML = `<img src="inverno.jpg">`;
+
+            }else if(mes == "fevereiro"){
+
+                divEsta.innerHTML = `<img src="inverno.jpg">`;
+
+            }else if(mes == "marco"){
+                
+                divEsta.innerHTML = `<img src="prima.jpg">`;
+
+            }else if(mes == "abril"){
+                
+                divEsta.innerHTML = `<img src="prima.jpg">`;
+
+            }else if(mes == "maio"){
+                
+                divEsta.innerHTML = `<img src="prima.jpg">`;
+
+            }else if(mes == "junho"){
+                
+                divEsta.innerHTML = `<img src="verao.jpg">`;
+
+            }else if(mes == "julho"){
+                
+                divEsta.innerHTML = `<img src="verao.jpg">`;
+
+            }else if(mes == "agosto"){
+                
+                divEsta.innerHTML = `<img src="verao.jpg">`;
+
+            }else if(mes == "setembro"){
+                
+                divEsta.innerHTML = `<img src="outono.jpeg">`;
+
+            }else if(mes == "outubro"){
+                
+                divEsta.innerHTML = `<img src="outono.jpeg">`;
+
+            }else if(mes == "novembro"){
+                
+                divEsta.innerHTML = `<img src="outono.jpeg">`;
+
+            }else if(mes == "dezembro"){
+                
+                divEsta.innerHTML = `<img src="inverno.jpg">`;
+
+            }
+        }
+
+    </script>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body bgcolor="aquamarine">
+
+
+    <h1>Bebida</h1>
+    <select id="select_bebida">
+        <option value="0">nenhuma</option>
+        <option value="3">Água</option>
+        <option value="5">refrigerante</option>
+        <option value="6">cerveja</option>
+    </select>
+
+    <br>
+
+    <h1>Comida</h1>
+    <select id="select_comida">
+        <option value="7">Salada</option>
+        <option value="20">Feijoada</option>
+        <option value="15">Bide a Cavalo</option>
+        <option value="20">Peixe Frito</option>
+    </select>
+
+    <br>
+    <br>
+
+    Qual é seu nome? <input type="text" id="in_nome">
+
+    <br>
+    <br>
+
+    <button onclick="totalPagar()">Total a Pagar</button>
+
+    <br>
+    <br>
+
+    <span id="resultado"></span>
+
+</body>
+
+</html>
+
+<script>
+
+function totalPagar(){
+var comida = Number(select_comida.value);
+var bebida = Number(select_bebida.value);    
+var nome = in_nome.value;
+var total = comida + bebida;
+
+resultado.innerHTML = `Olá ${nome} seu almoço vai custar ${total}`;
+
+}
+
+</script>
+
+
+
+<!-- 1. Crie um programa em HTML/JS o qual:
+a) Solicite a "Bebida" que o usuário vai consumir, dentre as seguintes opções:
+   Nenhuma, Água, Refrigerante, Cerveja
+   Defina o preço que quiser para cada um desses itens
+   
+b) Solicite a "Refeição" que o usuário vai consumir, dentre as seguintes opções:
+   Salada, Feijoada, Bife a Cavalo, Peixe Frito
+   Defina o preço que quiser para cada um desses itens
+   
+c) Solicite o nome do usuário   
+
+d) Ao clicar num botão "Calcular total a pagar", exiba na própria página uma frase como esta:
+   
+   Olá, NOME. Seu almoço vai custar um total de R$TOTAL
+   
+Onde NOME é o valor informado em c) e TOTAL é a soma do valor da bebida do item a) com o valor da refeição do item b)    -->

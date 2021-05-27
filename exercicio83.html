@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Rua A</h1>
+    <br>
+    <select  id="select_ruaA">
+        <option value="0">Parado</option>
+        <option value="1">Andando</option>
+        
+    </select>
+
+<br><br>
+
+    <h1>Rua B</h1>
+    <br>
+    <select id="select_ruaB">
+        <option value="0">Parado</option>
+        <option value="1">Andando</option>
+        
+    </select>
+
+    <br><br>
+
+    <button onclick="simulador()">Simular</button>
+
+</body>
+</html>
+
+<script>
+    function simulador(){
+        var ruaA = Number(select_ruaA.value);
+        var ruaB = Number(select_ruaB.value);
+
+        if(ruaA == 0 && ruaB == 1 || ruaA == 1 && ruaB == 0){
+            alert(`Fluxo Perfeito`);
+        } else if(ruaA == 1 && ruaB == 1){
+            alert(`Risco de Colisão`);
+        } else if(ruaA == 0 && ruaB == 0){
+            alert(`Risco de Engarrafamento`);
+        }
+    }
+</script>
+
+<!-- a) Tenha uma lista para a "Rua A", com duas opções:
+
+    a.1) <option value="0">Parado</option>;
+
+    a.2) <option value="1">Andando</option>;
+
+b) Tenha uma lista para a "Rua A", com duas opções:
+
+    b.1) <option value="0">Parado</option>;
+
+    b.2) <option value="1">Andando</option>;
+
+c) Ao clicar em "Simular":
+
+    c.1) Informe ao usuário do programa se o fluxo de carros está adequado, obedecendo as seguintes regras:
+
+    c.2) Se os dois fluxos estiverem andando, informe: "Risco de Colisão";
+
+    c.3) Se os dois fluxos estiverem parados, informe: "Risco de engarrafamento";
+
+    c.4) Caso contrário, informe "Fluxo perfeito"; -->

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="clicks()">Clica nimim</button>
+    <span id="nro_clicks"></span><br><br>
+    <span id="frase_click"></span>
+</body>
+</html>
+
+<script>
+    
+    var click = 0;
+    function clicks(){
+        nro_clicks.innerHTML = `Você já clicou ${click++}`;
+
+        if(click < 5){
+
+            frase_click.innerHTML = `Clica Poco`;
+
+        } else if(click<10){
+
+            frase_click.innerHTML = `Clica Medio`;
+
+        } else if(click<15){
+
+            frase_click.innerHTML = `Clica Legal`;
+
+        } else if(click > 15){
+
+            frase_click.innerHTML = `Clica Pkrl`;
+
+        }
+    }
+
+</script>

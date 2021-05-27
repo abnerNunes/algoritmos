@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+Qual é a temperatura média do ambiente?<input type="text" id="in_temperatura">
+<br>
+<button onclick="conforto()">Medir Conforto</button>
+<br>
+</body>
+</html>
+
+
+<script>
+    function conforto(){
+        var temp = Number(in_temperatura.value);
+        if(temp>21 && temp<24){
+            alert(`A temperatura está confortavel`);
+        }
+        else{
+            alert(`A temperatura não está confortavel!`);
+        }
+
+    }
+</script>
+<!-- 6. Crie um programa em HTML/JS que verifique se a temperatura do ambiente está confortável.
+a) Solicite a temperatura do ambiente
+b) Ao clicar em "Medir conforto", exiba um alert com uma dessas frases
+    "Temperatura confortável", caso a temperatura esteja entre 22 e 23.
+    "Temperatura não está confortável", caso contrário.
+ -->

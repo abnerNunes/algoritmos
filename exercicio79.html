@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+  Qual a idade do usuário?  <input type="text" id="idade_user">
+  <br>
+  Qual é o peso do usuário? <input id="peso_user">
+  <br>
+  <button onclick="verificar()">Verificar</button>
+  <br>
+  <span id="resultado"></span>
+</body>
+</html>
+
+<script>
+    function verificar(){
+      var idade = Number(idade_user.value);
+      var peso = Number(peso_user.value);
+      
+      if(idade > 15 && peso < 101){
+          resultado.innerHTML = `<b style="color:blue">Você poderá brincar!!!!</b>`;
+      }
+      else{
+          resultado.innerHTML = `<b style="color:red">Você não pode brincar :(((</b>`;
+      }
+    }
+</script>
+
+<!-- 
+    3. Crie um programa em HTML/JS o qual:
+a) Solicita a idade do usuário
+b) Solicita o peso do usuário
+c) Considerando que o sistema é para avaliar o uso de um brinquedo, existe um peso máximo permitido e uma idade mínima (por questões de segurança). 
+Assim, ao clicar em "Pode brincar?", exiba uma das seguintes frases na tela:
+
+    Você poderá brincar :)  -> Caso a idade for maior que 15 e o peso for até 100kg
+    Você não poderá brincar :(  -> Caso a idade for até 15 e o peso for mais de 100kg
+ -->

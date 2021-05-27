@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Lista A</h1>
+    <br>
+    <select  id="select_listaA">
+        <option value="0">Carnívoros</option>
+        <option value="1">Veganos</option>
+        
+    </select>
+
+    <br><br>
+
+    <h1>Lista B</h1>
+    <br>
+    <select  id="select_listaB">
+        <option value="0">Carnívoros</option>
+        <option value="1">Veganos</option>
+        
+    </select>
+
+    <br><br>
+
+    <button onclick="verificar()">Verificar Festa</button>
+
+</body>
+</html>
+
+<script>
+    function verificar(){
+        var listaA = Number(select_listaA.value);
+        var listaB = Number(select_listaB.value);
+        
+        if(listaA == 1 && listaB == 1){
+            alert(`Melhor ir de Veggie :(`);
+        } else if(listaA == 0 && listaB == 0){
+            alert(`Pode servir tudo! Galera gente fina!`);
+        } else if(listaA == 1 && listaB == 0 || listaA == 0 && listaB ==1){
+            alert(`Sua festá tem chance de 83% de fracasso!`);
+        }
+    }
+</script>
+
+
+<!-- 2) Uma festa só é bem sucedida se os convidados se sentem bem alimentados, não é mesmo ? Sabendo disso, crie um programa em HTML/JS 
+    que ajudará um organizador de festas a verificar a chance de sua festa bombar, da seguinte forma:
+
+
+
+a) Tenha uma lista para os convidados do tipo "A", com duas opções:
+
+    a.1) <option value="0">Carnes e derivados de animais</option>;
+
+    a.2) <option value="1">Apenas opções veganas</option>;
+
+b) Tenha uma lista para os convidados do tipo "B", com duas opções:
+
+    b.1) <option value="0">Carnes e derivados de animais</option>;
+
+    b.2) <option value="1">Apenas opções veganas</option>;
+
+c) Ao clicar em "Verificar":
+
+    c.1) Informe ao usuário do programa se os convidados se sentirão satisfeitos com o cardápio, obedecendo as seguintes regras:
+
+    c.2) Caso os dois tipos de convidados comam apenas opções veganas, informe: "Para uma taxa de sucesso de 100% dessa festa, é melhor ir de veggie ;)"
+
+    c.3) Caso os dois tipos de convidados comam opções carnívoras, informe: "Tá tudo liberado, pode servir o que quiser :D"
+
+    c.4) Caso contrário, informe: "A festa tem uma probabilidade de fracasso de 83%"; -->
