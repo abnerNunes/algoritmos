@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AC3 - Abner Nunes</title>
+</head>
+
+<body>
+    <button onclick="cadastrar_produtos()">Cadastrar Produto</button>
+    <br>
+    <button onclick="iniciar_nova_venda()">Iniciar Nova Venda</button>
+    <br>
+    <br>
+    <div id="div_form_cadastro_produtos"></div>
+    <br>
+    <div id="div_nota_fiscal"></div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    var lista_cod_produto = [];
+    var lista_nome_produto = [];
+    var lista_preco_produto = [];
+    var lista_estoque_produto = [];
+    var lista_cod_produto_venda = [];
+    var lista_qtd_vendida = [];
+
+    function cadastrar_produtos() {
+        div_form_cadastro_produtos.innerHTML = `Código do Produto: <input id="in_cod_produto">
+        <br>
+        Nome do Produto: <input id="in_nome_produto">
+        <br>
+        Preço do Produto<input id="in_preco_produto">
+        <br>
+        Quantidade em Estoque<input id="in_estoque_produto">
+        <br>
+        <button onclick="salvar_produtos()">Salvar Produto</button>`;
+
+        div_nota_fiscal.innerHTML = "";
+    }
+
+    function salvar_produtos() {
+        cod_produto = Number(in_cod_produto.value);
+        nome_produto = in_nome_produto.value;
+        preco_produto = Number(in_preco_produto.value);
+        estoque_produto = Number(in_estoque_produto.value);
+        var codigo_existente = false;
+        for (var contador = 0; contador < lista_cod_produto.length; contador++) {
+            if (cod_produto == lista_cod_produto[contador]) {
+                codigo_existente = true;
+            }
+        }
+
+        if (codigo_existente) {
+            alert(`Produto Já Existente!!!`)
+        } else {
+            lista_cod_produto.push(cod_produto);
+            lista_nome_produto.push(nome_produto);
+            lista_preco_produto.push(preco_produto);
+            lista_estoque_produto.push(estoque_produto);
+
+            alert(`Produto Cadastrado com Sucesso!!!`);
+        }
+    }
+
+
+    function iniciar_nova_venda() {
+        div_form_cadastro_produtos.innerHTML = `Código do Produto: <input id="in_cod_produto_venda">
+        <br>
+        Quantidade Vendida: <input id="in_qtd_vendida">
+        <br>
+        <button onclick="registrar_venda()"">Registrar Venda</button>
+        <br>
+        <br>
+        <button onclick="finalizar_vendas()">Finalizar Venda</button>`;
+    }
+
+    function registrar_venda() {
+        var cod_produto_venda = Number(in_cod_produto_venda.value);
+        var qtd_vendida = Number(in_qtd_vendida.value);
+        var produto_existente = false;
+        var quantidade_valida = false;
+
+        for (var contador = 0; contador < lista_cod_produto.length; contador++) {
+            if (lista_cod_produto[contador] == cod_produto_venda) {
+                produto_existente = true;
+            }
+
+            if (lista_estoque_produto[contador] >= qtd_vendida) {
+                quantidade_valida = true;
+            }
+        }
+
+        if (produto_existente && quantidade_valida) {
+            lista_cod_produto_venda.push(cod_produto_venda);
+            lista_qtd_vendida.push(qtd_vendida);
+            for (var contador = 0; contador < lista_cod_produto.length; contador++) {
+                if (lista_cod_produto[contador] == cod_produto_venda) {
+                    lista_estoque_produto[contador] = lista_estoque_produto[contador] - qtd_vendida;
+                }
+                
+            }
+            alert(`Venda Registrada!!!`)
+        } else if (produto_existente && quantidade_valida == false) {
+            alert(`Venda Bloqueada, Verifique Quantidade em Estoque`)
+        } else if (quantidade_valida && produto_existente == false) {
+            alert(`Venda Bloqueada, Produto Não Encontrado`)
+        }
+    }
+
+    function finalizar_vendas() {
+
+        div_nota_fiscal.innerHTML = `Total de Vendas: ${lista_qtd_vendida.length}<br>`;
+
+        for (var contador = 0; contador < lista_cod_produto_venda.length; contador++) {
+            div_nota_fiscal.innerHTML += `produto ${contador + 1}<br>
+            Valor Unitário: ${lista_preco_produto[contador]} - Quantidade Vendida: ${lista_qtd_vendida[contador]}<br>
+            Subtotal: ${lista_qtd_vendida[contador] * lista_preco_produto[contador]}<br>`;
+        }
+
+        lista_cod_produto_venda = [];
+        lista_qtd_vendida = [];
+    }
+</script>
