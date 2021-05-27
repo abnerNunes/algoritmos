@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body bgcolor="whitesmoke">
+    <center>
+    <div style="box-shadow: rgb(228, 2, 2)5px 5px 14px; width: 300px; ">
+        <div style="border-bottom: solid rgb(83, 0, 0) 4px; border-radius: 5px;">
+            <h1 style="font-family:'MetalShred'; color: rgb(133, 0, 0); font-size: 50px;"> <u> Cinema Brabo </u> </h1>
+            <br>
+            <br>
+            <input id="in_fruta" style="border-style: double; border-radius: 6px; border-color: rgb(133, 0, 0);">
+            <br>
+            <br>
+            <button onclick="adicionar()"
+                style="border-color: rgb(133, 0, 0); border-radius: 4px; box-shadow: rgb(228, 2, 2)5px 5px 14px;">Adicionar
+                Filme</button>
+            <br>
+            <br>
+            
+            <br>
+            <br>
+        </div>
+        <br>
+        Lista: <div
+            style=" width: 100px; border-radius: 5px; border-style: inherit; border-color: black;"
+            id="result_list"></div>
+        <br>
+       
+    </div>
+</center>
+</body>
+
+</html>
+
+<script>
+    var contador = 0;
+    var fruta = 0;
+    
+
+    function adicionar() {
+        contador++
+        var fruta = in_fruta.value;
+
+        if(contador % 2 == 0){
+            
+            result_list.innerHTML += `<span style="color:red">${fruta}</span><br>`;
+        } else{
+            
+            result_list.innerHTML += `<span style="color:blue">${fruta}</span><br>`;
+        }
+
+    }
+
+   </script>
+
+<!-- 4. Crie um programa no qual o usuário informa os nomes dos filmes que mais gosta. Ele digita e clica em "Cadastrar".
+Na medida em que vai cadastrando, os filmes vão aparecendo um abaixo do outro abaixo do botão. SÓ QUE, aparecem na cor azul,
+ depois vermelho, depois azul, depois vermelho, e assim por diante.-->

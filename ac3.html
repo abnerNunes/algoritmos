@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AC3</title>
+</head>
+<style>
+    #imgs img{ 
+        height: 100px;
+        width: 100px;
+
+    }
+    #resultado_noitada{
+        display: none
+    }
+    #resultado_noitada b{
+        font-size: 80 px;
+        
+    }
+    #detalhes_noitada{
+        display: none
+    }
+    #detalhes_noitada b{
+        font-size: 80 px;
+        
+    }
+</style>
+<body>
+<select  id="niquel">
+    <option value="melancia">melancia</option>
+    <option value="cereja">cereja</option>
+    <option value="laranja">laranja</option>
+    <option value="banana">banana</option>
+</select> <br>
+    <button onclick="sorteio()">Pagar R$ 2 e sortear</button> <button onclick="noitada()">encerrar a noitada</button>
+   <div id="imgs">
+       <!-- <img src="imgs/melancia.jpg" alt="">
+       <img src="imgs/laranja.jpg" alt="">
+       <img src="imgs/cereja.jpg" alt=""> 
+       <img src="imgs/banana.jpg" alt=""> -->
+   </div>
+   <div id="ganhos"></div>
+   <div id="resultado"></div>
+   <div id="resultado_noitada"><u><b>--------------Resumo DA NOITADA--------------</b></u></div>
+   <div id="detalhes_noitada"> <b>------------------DETALHES DA NOITADA ----------</b> <br>
+   </span></div>
+</body>
+</html>
+<script>
+    // VARIAVEIS GLOBAIS
+
+    var frutas = [`melancia`,`banana`,`laranja`,`cereja`]
+    var frutas_escolhidas = []
+    var frutas_sorteadas =[]
+    var lucros_nas_rodadas =[]
+ var contador_rodadas = 0
+    var lucro_total = 0
+    var sortear_fruta 
+    // LIMPA O ULTIMO SORTEIO
+    function limpar(){
+        imgs.innerHTML =``
+        resultado.innerHTML = ``
+        
+    }
+    // REALIZANDO OS SORTEIOS
+function sorteio(){
+    
+    limpar()
+contador_rodadas++
+var fruta_selecionada = niquel.value
+frutas_escolhidas.push(fruta_selecionada)
+ var frutas_da_rodada = []
+var lucro_rodada = 0
+var fruta_sorteada
+var contador_ganhos = 0
+for(var contador_sorteio = 0; contador_sorteio<4 ;contador_sorteio++) { 
+     sortear_fruta = (Math.random()*(3-0)+0).toFixed(0)
+     console.log(sortear_fruta)
+    fruta_sorteada = frutas[sortear_fruta]
+    frutas_da_rodada.push(fruta_sorteada)
+    if(fruta_sorteada == fruta_selecionada){
+     contador_ganhos++
+
+}
+if(fruta_sorteada == `melancia`){
+    imgs.innerHTML += ` <img src="imgs/melancia.jpg" alt="">`
+}
+if(fruta_sorteada == `cereja`){
+    imgs.innerHTML += ` <img src="imgs/cereja.jpg" alt="">`
+}
+if (fruta_sorteada == `laranja`){
+    imgs.innerHTML += ` <img src="imgs/laranja.jpg" alt="">`
+}
+
+if (fruta_sorteada == `banana`){
+    imgs.innerHTML += ` <img src="imgs/banana.jpg" alt="">`
+}
+}
+frutas_sorteadas.push(frutas_da_rodada)
+if(contador_ganhos == 0){
+    resultado.innerHTML = `Você nâo ganhou nada nessa rodada`
+    lucro_rodada = 0
+    lucros_nas_rodadas.push(lucro_rodada)
+    lucro_total  = lucro_total - 2
+}
+if(contador_ganhos == 1){
+    resultado.innerHTML = `você ganhou R$1,50 nessa rodada` 
+    lucro_rodada = 1.50
+    lucro_total = lucro_total - 0.5
+    lucros_nas_rodadas.push(lucro_rodada)
+}
+if(contador_ganhos == 2){
+    resultado.innerHTML = `você ganhou R$5,00 nessa rodada`
+    lucro_rodada = 5
+    lucros_nas_rodadas.push(lucro_rodada)
+ lucro_total +=3
+}
+if(contador_ganhos == 3){
+    resultado.innerHTML = `você ganhou R$21,00 nessa rodada`
+    lucro_rodada = 21
+    lucros_nas_rodadas.push(lucro_rodada)
+lucro_total +=19
+}
+
+if (contador_ganhos == 4){
+    resultado.innerHTML= `você ganhou R$50,00 nessa rodada`
+    lucro_rodada = 50
+    lucros_nas_rodadas.push(lucro_rodada)
+    lucro_total +=48
+}
+
+}
+
+// DETALHES DA NOITADA
+function limpar_noitada(){
+    resultado_noitada.innerHTML =  ``
+        detalhes_noitada.innerHTML = ``
+}
+function noitada(){
+    if(contador_rodadas == 0){
+        resultado_noitada.style.display = 'block'
+        resultado_noitada.innerHTML = `<b> JOGUE ALGUMAS RODADAS PARA PODER VER O RESULTADO </b>`
+    }
+    if (contador_rodadas > 0){
+    limpar_noitada()
+    resultado_noitada.style.display ='block'
+    detalhes_noitada.style.display = 'block'
+    var total_gasto = contador_rodadas * 2
+resultado_noitada.innerHTML = `você participou de ${contador_rodadas} rodadas é gastou  
+você gastou R$ ${total_gasto.toFixed(2)} <br>
+é você recebeu R$ ${lucro_total.toFixed(2)}<br> `
+if (lucro_total < total_gasto){
+    let devendo = (total_gasto - lucro_total).toFixed(2)
+    resultado_noitada.innerHTML = `você participou de ${contador_rodadas} rodadas é gastou  
+você gastou R$ ${total_gasto.toFixed(2)} <br>
+é você nâo lucrou nada<br> <b>vá ao caixa PAGAR ${devendo} </b> `
+}
+if (lucro_total > total_gasto){
+    let ganahando = (lucro_total - total_gasto).toFixed(2)
+    resultado_noitada.innerHTML +=`<b>Vá ao caixa e RECEBER $${ganahando}</b>`
+}
+if (lucro_total == total_gasto){
+    resultado_noitada.innerHTML +=`<b>INCRIVEL VOCÊ NEM GANHOU NEM PERDEU </b>`
+}
+
+for(let i = 0; i<contador_rodadas; i++){
+    let numero_rodada = i+1
+    let ver_fruta_selecionada = frutas_escolhidas[i]
+    let ver_lucro_na_rodada = (lucros_nas_rodadas[i]).toFixed(2)
+    let ver_frutas_das_rodadas = frutas_sorteadas[i]
+
+detalhes_noitada.innerHTML += `rodada ${numero_rodada}, fruta selecionada ${ver_fruta_selecionada}, <b>as frutas sorteadas foram ${ver_frutas_das_rodadas}</b>; os seus ganhos na rodada foram R$ ${ver_lucro_na_rodada} <br> `
+}
+recomeçar()
+    }
+}
+function recomeçar(){
+    frutas_escolhidas = []
+    frutas_sorteadas =[]
+    lucros_nas_rodadas =[]
+    contador_rodadas = 0
+    lucro_total = 0
+}
+
+</script>

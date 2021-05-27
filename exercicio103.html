@@ -1,0 +1,54 @@
+<!-- 6. Crie um programa em HTML/JS em que:
+
+a) Tenha uma lista de alunos e um botão para cadastrar novos (mostre como a lista está a cada novo aluno inserido).
+
+b) Ao tentar inserir um aluno, verifique se já não existe na lista - caso exista, não insira-o.
+
+c) Tenha um campo para pesquisar alunos, onde o usuário possa verificar se o aluno em questão já existe (se existir, 
+exiba um alert com a frase "O aluno X já existe na lista").
+
+*Obs o campo para pesquisar alunos pode ser o mesmo para inserir novos. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <button onclick="pesquisar_aluno()">PESQUISA</button>
+  <br>  
+  <br> 
+  Aluno:  <input id="in_aluno">
+  <br>
+  <br>
+  <button onclick="cadastrar_aluno()">CADASTRA</button>
+  <br>
+  <br>
+  <div id="lista_de_alunos"></div>
+</body>
+</html>
+
+<script>
+var lista_alunos = [];
+var contador = 0;
+
+function cadastrar_aluno(){
+    contador = lista_alunos.length;
+    
+    lista_alunos.push(in_aluno.value);
+    
+    lista_de_alunos.innerHTML += `${lista_alunos[contador]}<br>`;
+
+}
+
+function pesquisar_aluno(){
+
+
+
+}
+
+</script>

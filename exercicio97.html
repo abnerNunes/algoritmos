@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body bgcolor="whitesmoke">
+    <center>
+    <div style="box-shadow: rgb(228, 2, 2)5px 5px 14px; width: 300px; ">
+        <div style="border-bottom: solid rgb(83, 0, 0) 4px; border-radius: 5px;">
+            <h1 style="font-family:'MetalShred'; color: rgb(133, 0, 0); font-size: 50px;"> <u> Feira da Fruta </u> </h1>
+            <br>
+            <br>
+            <input id="in_fruta" style="border-style: double; border-radius: 6px; border-color: rgb(133, 0, 0);">
+            <br>
+            <br>
+            <button onclick="adicionar()"
+                style="border-color: rgb(133, 0, 0); border-radius: 4px; box-shadow: rgb(228, 2, 2)5px 5px 14px;">Adicionar
+                Fruta</button>
+            <br>
+            <br>
+            <button onclick="ver()"
+                style="border-color: rgb(133, 0, 0); border-radius: 4px; box-shadow: rgb(228, 2, 2)5px 5px 14px;">Nota
+                Fiscal</button>
+            <br>
+            <br>
+        </div>
+        <br>
+        Lista: <div
+            style="background-color: rgb(133, 0, 0); width: 100px; color: rgb(255, 209, 209); border-radius: 5px; border-style: inherit; border-color: black;"
+            id="result_list"></div>
+        <br>
+        <br>
+        quantidade itens: <div id="result_fisc"></div>
+        <br>
+        <br>
+        preço total: <div id="result_preco"></div>
+        <br>
+        <br>
+        primeira fruta: <div id="result_prim"></div>
+        <br>
+        <br>
+        ultima fruta: <div id="result_ult"></div>
+    </div>
+</center>
+</body>
+
+</html>
+
+<script>
+    var contador = 0;
+    var fruta = 0;
+    var prim = 0;
+    var ult = 0;
+
+
+    function adicionar() {
+        contador++
+        var fruta = in_fruta.value;
+        result_list.innerHTML += `${fruta}<br>`;
+
+        if (contador == 1) {
+            prim = in_fruta.value;
+        }
+    }
+
+    function ver() {
+        result_fisc.innerHTML = `${contador}<br>`;
+        result_list.style.display = "None";
+        result_preco.innerHTML = `${contador * 2.5}`;
+        result_prim.innerHTML = `${prim}`;
+        result_ult.innerHTML = `${in_fruta.value}`;
+    }
+</script>
+
+<!-- 1) Crie um programa em HTML/JS que:
+
+a) Tenha um input;
+b) Tenha um botão "Adicionar fruta", que:
+    a.1) Adiciona frutas á uma lista (que aparece na tela, separe-as por <br>);
+c) Tenha um botão "Ver nota fiscal" que: 
+    c.1) Esconde a lista de frutas e mostra o valor total da lista (2,50 cada item);
+    c.2) Mostra a quantidade de itens na lista (não os itens);
+    c.3) Mostra a primeira fruta adiciona na lista;
+    c.4) Mostra a última fruta adicionada na lista;
+ -->

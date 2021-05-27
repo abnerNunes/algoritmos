@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    RA<input id="in_ra">
+    <br>
+    Nota<input id="in_nota">
+    <br>
+    <button onclick="cadastrarValores()">Guardar</button>
+    <br>
+    Visualizar por Par ou Impar<input maxlength="1" id="in_modo_visualizacao">
+    <br>
+    <button onclick="analisar()">Analisar</button>
+    <br>
+    <div id="mensagem_final"></div>
+</body>
+</html>
+
+<script>
+
+var listaNotas = [];
+var listaRA = [];
+function cadastrarValores(){
+    listaNotas.push(Number(in_nota.value));
+    listaRA.push(Number(in_ra.value));
+}
+
+function analisar(){
+    var modoVisualizacao = in_modo_visualizacao.value;
+    if(modoVisualizacao.toLowerCase() != "p" && modoVisualizacao != "i"){
+        alert(`Valor Inválido, entre com p ou i`)
+    } else {
+       var listaRaFiltrados = [];
+       var listaNotasFiltradas = [];
+       var somatoria = 0;
+       for(var contador = 0; contador < listaRA.length; contador ++){
+           if(modoVisualizacao == 'p'){
+               if(listaRA[contador]%2 == 0){
+                   listaRaFiltrados.push(listaRA[contador]);
+                   listaNotasFiltradas.push(listaNotas[contador]);
+                   somatoria += listaNotas[contador];
+               }
+           } else {
+               if(listaRA[contador]%2 !=0) {
+                   listaRaFiltrados.push(listaRA[contador]);
+                   listaNotasFiltradas.push(listaNotas[contador]);
+                   somatoria += listaNotas[contador];
+               }
+           }
+       } 
+
+      
+
+       var media = somatoria / listaNotasFiltradas.length;
+
+       mensagem_final.innerHTML = "";
+       for(var contador = 0; contador < listaRaFiltrados.length; contador++){
+           var rafiltrado = listaRaFiltrados[contador];
+           var notafiltrada = listaNotasFiltradas[contador];
+           if(notafiltrada >= media){
+           mensagem_final.innerHTML += `Aluno com RA = ${rafiltrado} e Nota = ${notafiltrada} foi selecionado pois a média é ${media}<br>`;
+           }
+       }
+    }
+}
+
+</script>

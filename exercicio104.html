@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nota:<input id="in_nota_aluno">
+    <br>
+    <button onclick="cadastrar()">Cadastrar Nota</button>
+    <br>
+    Número 1: <input id="in_nro_1">
+    <br>
+    Número 2: <input id="in_nro_2">
+    <br>
+    <button onclick="rever()">Rever Notas</button>
+    <br>
+    <div id="div_notas"></div>
+    <br>
+    <div id="result"></div>
+</body>
+</html>
+
+<script>
+    var lista_notas = [];
+    var lista_notas_inter = [];
+    var soma_nro = 0;
+
+function cadastrar(){
+    var nota = Number(in_nota_aluno.value);
+    lista_notas.push(nota);
+    
+}
+
+function rever(){
+    var inter1 = Number(in_nro_1.value);
+    var inter2 = Number(in_nro_2.value);
+    
+
+    for(var contador = 0; contador < lista_notas.length; contador++){
+        if(lista_notas[contador] >= inter1 && lista_notas[contador] <= inter2){
+            div_notas.innerHTML += `${lista_notas[contador]}<br>`;
+            lista_notas_inter.push(lista_notas[contador]);
+            var soma_nro = soma_nro + lista_notas[contador];
+        }
+    }
+
+    var acumulador = 0;
+    for(var contador = 0; contador < lista_notas_inter.lenght; contador++){
+        acumulador += lista_notas_inter[contador];
+    }
+
+    var media = acumulador / lista_notas_inter.length;
+
+    result.innerHTML = `Foram cadastradas ${lista_notas_inter.length} notas, num intervalo de ${inter1} até ${inter2} e a média dessas notas é: ${media} `;
+}
+
+   
+
+</script>
+
+<!-- 8. 
+
+a) Crie um programa onde o usuário vá cadastrando a nota dos alunos. Ele digita a nota e clica em "Cadastrar Nota".
+
+b) Deve haver outros dois campos, onde ele digita dois números, indicando o intervalo de notas que ele quer analisar, e clica em "Rever as notas".
+
+c) O programa deve mostrar todas as notas cadastradas que estão no intervalo informado no item b).
+
+d) Ao final emitir a seguinte mensagem: “Foram cadastras XX notas que estão no intervalo de  YY até ZZ e a média dessas notas é MM,M”, -->
